@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LifeSaver - Blood Donation Network</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <!-- Header/Navigation -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <h1><i class="fas fa-heartbeat"></i> LifeSaver</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#donate">Donate</a></li>
+          <li><a href="#request">Request</a></li>
+          <li><a href="#banks">Blood Banks</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="mobile-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <h2>Every Drop Counts</h2>
+        <p>Join our network of blood donors and help save lives today. Your single donation can save up to 3 lives.</p>
+        <div class="hero-buttons">
+          <a href="#donate" class="btn-primary">Become a Donor</a>
+          <a href="#request" class="btn-secondary">Request Blood</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <h3>15,000+</h3>
+          <p>Lives Saved</p>
+        </div>
+        <div class="stat-card">
+          <h3>8,500+</h3>
+          <p>Active Donors</p>
+        </div>
+        <div class="stat-card">
+          <h3>120+</h3>
+          <p>Partner Banks</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Donor Registration Section -->
+  <section class="donor-registration" id="donate">
+    <div class="container">
+      <h2 class="section-title">Become a Blood Donor</h2>
+      <p class="section-subtitle">Fill out the form below to join our donor network</p>
+
+      <form id="donorForm">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" min="18" max="65" required>
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+              <option value="">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bloodType">Blood Type</label>
+            <select id="bloodType" name="bloodType" required>
+              <option value="">Select</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="lastDonation">Last Donation Date</label>
+            <input type="date" id="lastDonation" name="lastDonation">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" id="address" name="address" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" required>
+          </div>
+          <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" id="state" name="state" required>
+          </div>
+          <div class="form-group">
+            <label for="zip">ZIP Code</label>
+            <input type="text" id="zip" name="zip" required>
+          </div>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <input type="checkbox" id="eligibility" name="eligibility" required>
+          <label for="eligibility">I confirm that I meet all eligibility requirements for blood donation</label>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <input type="checkbox" id="consent" name="consent" required>
+          <label for="consent">I consent to be contacted for blood donation requests</label>
+        </div>
+
+        <button type="submit" class="btn-primary">Register as Donor</button>
+      </form>
+
+      <div id="donorSuccess" class="success-message" style="display: none;">
+        <i class="fas fa-check-circle"></i>
+        <h3>Thank you for registering as a donor!</h3>
+        <p>We've sent a confirmation email with more information. You'll be notified when your blood type is needed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blood Request Section -->
+  <section class="blood-request" id="request">
+    <div class="container">
+      <h2 class="section-title">Request Blood</h2>
+      <p class="section-subtitle">For hospitals, clinics, and individuals in need</p>
+
+      <div class="request-options">
+        <div class="request-card emergency">
+          <i class="fas fa-ambulance"></i>
+          <h3>Emergency Request</h3>
+          <p>Immediate need for blood</p>
+          <a href="#emergencyForm" class="btn-primary">Request Now</a>
+        </div>
+
+        <div class="request-card scheduled">
+          <i class="fas fa-calendar-alt"></i>
+          <h3>Scheduled Request</h3>
+          <p>Upcoming surgery or treatment</p>
+          <a href="#scheduledForm" class="btn-primary">Schedule Request</a>
+        </div>
+      </div>
+
+      <div id="emergencyForm" class="request-form">
+        <h3>Emergency Blood Request</h3>
+        <form id="emergencyRequestForm">
+          <div class="form-group">
+            <label for="erFullName">Patient Name</label>
+            <input type="text" id="erFullName" name="erFullName" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="erBloodType">Blood Type Needed</label>
+              <select id="erBloodType" name="erBloodType" required>
+                <option value="">Select</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="erUnits">Units Needed</label>
+              <input type="number" id="erUnits" name="erUnits" min="1" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="erHospital">Hospital/Clinic Name</label>
+            <input type="text" id="erHospital" name="erHospital" required>
+          </div>
+
+          <div class="form-group">
+            <label for="erLocation">Hospital Location</label>
+            <input type="text" id="erLocation" name="erLocation" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="erContactName">Contact Person</label>
+              <input type="text" id="erContactName" name="erContactName" required>
+            </div>
+            <div class="form-group">
+              <label for="erContactPhone">Contact Phone</label>
+              <input type="tel" id="erContactPhone" name="erContactPhone" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="erUrgency">Urgency Level</label>
+            <select id="erUrgency" name="erUrgency" required>
+              <option value="critical">Critical (needed immediately)</option>
+              <option value="urgent">Urgent (needed within 2 hours)</option>
+              <option value="high">High (needed within 4 hours)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="erNotes">Additional Notes</label>
+            <textarea id="erNotes" name="erNotes" rows="3"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">Submit Emergency Request</button>
+        </form>
+
+        <div id="emergencySuccess" class="success-message" style="display: none;">
+          <i class="fas fa-check-circle"></i>
+          <h3>Emergency request submitted!</h3>
+          <p>We've alerted donors in your area and nearby blood banks. A coordinator will contact you shortly.</p>
+        </div>
+      </div>
+
+      <div id="scheduledForm" class="request-form" style="display: none;">
+        <h3>Scheduled Blood Request</h3>
+        <form id="scheduledRequestForm">
+          <div class="form-group">
+            <label for="srFullName">Patient Name</label>
+            <input type="text" id="srFullName" name="srFullName" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="srBloodType">Blood Type Needed</label>
+              <select id="srBloodType" name="srBloodType" required>
+                <option value="">Select</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="srUnits">Units Needed</label>
+              <input type="number" id="srUnits" name="srUnits" min="1" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="srHospital">Hospital/Clinic Name</label>
+            <input type="text" id="srHospital" name="srHospital" required>
+          </div>
+
+          <div class="form-group">
+            <label for="srLocation">Hospital Location</label>
+            <input type="text" id="srLocation" name="srLocation" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="srContactName">Contact Person</label>
+              <input type="text" id="srContactName" name="srContactName" required>
+            </div>
+            <div class="form-group">
+              <label for="srContactPhone">Contact Phone</label>
+              <input type="tel" id="srContactPhone" name="srContactPhone" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="srSurgeryDate">Surgery/Treatment Date</label>
+              <input type="date" id="srSurgeryDate" name="srSurgeryDate" required>
+            </div>
+            <div class="form-group">
+              <label for="srNeededBy">Blood Needed By</label>
+              <input type="date" id="srNeededBy" name="srNeededBy" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="srNotes">Additional Notes</label>
+            <textarea id="srNotes" name="srNotes" rows="3"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">Schedule Blood Request</button>
+        </form>
+
+        <div id="scheduledSuccess" class="success-message" style="display: none;">
+          <i class="fas fa-check-circle"></i>
+          <h3>Scheduled request submitted!</h3>
+          <p>We'll coordinate with our donor network to ensure blood is available by your needed date.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blood Bank Locator Section -->
+  <section class="blood-banks" id="banks">
+    <div class="container">
+      <h2 class="section-title">Find Blood Banks</h2>
+      <p class="section-subtitle">Locate registered blood banks in your area</p>
+
+      <div class="search-container">
+        <div class="search-box">
+          <input type="text" id="bankLocation" placeholder="Enter city, state, or ZIP">
+          <button id="searchBanks" class="btn-primary">
+            <i class="fas fa-search"></i> Search
+          </button>
+        </div>
+        <div class="filter-box">
+          <select id="bankTypeFilter">
+            <option value="">All Types</option>
+            <option value="hospital">Hospital-Based</option>
+            <option value="independent">Independent Center</option>
+            <option value="mobile">Mobile Unit</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="map-container">
+        <div id="map"></div>
+        <div class="bank-list">
+          <h3>Nearby Blood Banks</h3>
+          <div class="banks" id="bankResults">
+            <!-- Bank results will be populated here by JavaScript -->
+            <div class="no-results">
+              <i class="fas fa-map-marker-alt"></i>
+              <p>Enter a location to find blood banks</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="education" id="education">
+    <div class="container">
+      <h2 class="section-title">Blood Donation Education</h2>
+      <p class="section-subtitle">Learn about the donation process and its impact</p>
+
+      <div class="education-tabs">
+        <div class="tab-buttons">
+          <button class="tab-btn active" data-tab="process">Donation Process</button>
+          <button class="tab-btn" data-tab="eligibility">Eligibility</button>
+          <button class="tab-btn" data-tab="types">Blood Types</button>
+          <button class="tab-btn" data-tab="faq">FAQ</button>
+        </div>
+
+        <div class="tab-content">
+          <div id="process" class="tab-pane active">
+            <h3>The Blood Donation Process</h3>
+            <div class="process-steps">
+              <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h4>Registration</h4>
+                  <p>You'll complete donor registration which includes providing your ID and basic information.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h4>Health History</h4>
+                  <p>You'll answer some questions about your health history and places you've traveled.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h4>Mini-Physical</h4>
+                  <p>We'll check your temperature, pulse, blood pressure and hemoglobin level.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h4>Donation</h4>
+                  <p>The actual blood donation takes about 8-10 minutes for a whole blood donation.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                  <h4>Refreshment</h4>
+                  <p>After donating, you'll enjoy snacks and drinks while you rest for 10-15 minutes.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="eligibility" class="tab-pane">
+            <h3>Donor Eligibility Requirements</h3>
+            <div class="eligibility-content">
+              <div class="eligibility-card">
+                <h4>Basic Requirements</h4>
+                <ul>
+                  <li>Be at least 17 years old (16 with parental consent in some states)</li>
+                  <li>Weigh at least 110 pounds</li>
+                  <li>Be in good general health</li>
+                </ul>
+              </div>
+              <div class="eligibility-card">
+                <h4>Wait Periods</h4>
+                <ul>
+                  <li>56 days between whole blood donations</li>
+                  <li>7 days between platelet donations</li>
+                  <li>112 days between double red cell donations</li>
+                </ul>
+              </div>
+              <div class="eligibility-card">
+                <h4>Temporary Deferrals</h4>
+                <ul>
+                  <li>Cold, flu or fever - until symptom-free</li>
+                  <li>Pregnancy - 6 weeks after delivery</li>
+                  <li>Travel to malaria-risk areas - 3 month deferral</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div id="types" class="tab-pane">
+            <h3>Blood Types and Compatibility</h3>
+            <div class="blood-types-grid">
+              <div class="blood-type-card">
+                <div class="blood-type a-plus">A+</div>
+                <div class="type-info">
+                  <p><strong>Can donate to:</strong> A+, AB+</p>
+                  <p><strong>Can receive from:</strong> A+, A-, O+, O-</p>
+                  <p><strong>Population:</strong> ~34%</p>
+                </div>
+              </div>
+              <div class="blood-type-card">
+                <div class="blood-type a-minus">A-</div>
+                <div class="type-info">
+                  <p><strong>Can donate to:</strong> A+, A-, AB+, AB-</p>
+                  <p><strong>Can receive from:</strong> A-, O-</p>
+                  <p><strong>Population:</strong> ~6%</p>
+                </div>
+              </div>
+              <div class="blood-type-card">
+                <div class="blood-type b-plus">B+</div>
+                <div class="type-info">
+                  <p><strong>Can donate to:</strong> B+, AB+</p>
+                  <p><strong>Can receive from:</strong> B+, B-, O+, O-</p>
+                  <p><strong>Population:</strong> ~9%</p>
+                </div>
+              </div>
+              <div class="blood-type-card">
+                <div class="blood-type b-minus">B-</div>
+                <div class="type-info">
+                  <p><strong>Can donate to:</strong> B+, B-, AB+, AB-</p>
+                  <p><strong>Can receive from:</strong> B-, O-</p>
+                  <p><strong>Population:</strong> ~2%</p>
+                </div>
+              </div>
+              <div class="blood-type-card">
+                <div class="blood-type ab-plus">AB+</div>
+                <div class="type-info">
+                  <p><strong>Can donate to:</strong> AB+</p>
+                  <p><strong>Can receive from:</strong> All types</p>
+                  <p><strong>Population:</strong> ~3%</p>
+                </div>
+              </div>
+              <div class="blood-type-card">
+                <div class="blood-type ab-minus">AB-</div>
+                <div class="type-info">
+                  <p><strong>Can donate to:</strong> AB+, AB-</p>
+                  <p><strong>Can receive from:</strong> A-, B-, AB-, O-</p>
+                  <p><strong>Population:</strong> ~1%</p>
+                </div>
+              </div>
+              <div class="blood-type-card">
+                <div class="blood-type o-plus">O+</div>
+                <div class="type-info">
+                  <p><strong>Can donate to:</strong> O+, A+, B+, AB+</p>
+                  <p><strong>Can receive from:</strong> O+, O-</p>
+                  <p><strong>Population:</strong> ~38%</p>
+                </div>
+              </div>
+              <div class="blood-type-card">
+                <div class="blood-type o-minus">O-</div>
+                <div class="type-info">
+                  <p><strong>Can donate to:</strong> All types</p>
+                  <p><strong>Can receive from:</strong> O-</p>
+                  <p><strong>Population:</strong> ~7%</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="faq" class="tab-pane">
+            <h3>Frequently Asked Questions</h3>
+            <div class="faq-accordion">
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h4>How often can I donate blood?</h4>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>You can donate whole blood every 56 days (8 weeks). Platelet donations can be made every 7 days up
+                    to 24 times per year. Double red cell donations can be made every 112 days (16 weeks).</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h4>Does donating blood hurt?</h4>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>You may feel a slight pinch when the needle is inserted, but the donation process itself is
+                    generally painless. Most donors compare it to a slight pinch that lasts just a second.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h4>How long does a blood donation take?</h4>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>The actual blood donation typically takes about 8-10 minutes for a whole blood donation. The entire
+                    process from registration to refreshments takes about 45 minutes to an hour.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h4>Is donating blood safe?</h4>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>Yes, donating blood is very safe. All equipment is sterile, used only once, and then discarded.
+                    There's no risk of contracting any infectious disease from donating blood.</p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-question">
+                  <h4>How much blood is taken?</h4>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                  <p>For a whole blood donation, approximately one pint (about 500ml) is collected. This represents less
+                    than 10% of the average adult's total blood volume, which your body replaces within 24-48 hours.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Appointment Section -->
+  <section class="appointment">
+    <div class="container">
+      <h2 class="section-title">Schedule a Donation</h2>
+      <p class="section-subtitle">Book an appointment at a nearby blood bank</p>
+
+      <div class="appointment-container">
+        <div class="appointment-form">
+          <form id="appointmentForm">
+            <div class="form-group">
+              <label for="appointmentName">Full Name</label>
+              <input type="text" id="appointmentName" name="appointmentName" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="appointmentEmail">Email</label>
+                <input type="email" id="appointmentEmail" name="appointmentEmail" required>
+              </div>
+              <div class="form-group">
+                <label for="appointmentPhone">Phone</label>
+                <input type="tel" id="appointmentPhone" name="appointmentPhone" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="appointmentBloodType">Blood Type</label>
+              <select id="appointmentBloodType" name="appointmentBloodType" required>
+                <option value="">Select</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="appointmentLocation">Preferred Location</label>
+              <select id="appointmentLocation" name="appointmentLocation" required>
+                <option value="">Select</option>
+                <option value="central">Central Blood Bank</option>
+                <option value="north">Northside Donation Center</option>
+                <option value="south">Southside Medical Center</option>
+                <option value="east">Eastside Community Hospital</option>
+                <option value="west">Westside Blood Donation Center</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="appointmentDate">Preferred Date</label>
+                <input type="date" id="appointmentDate" name="appointmentDate" required>
+              </div>
+              <div class="form-group">
+                <label for="appointmentTime">Preferred Time</label>
+                <select id="appointmentTime" name="appointmentTime" required>
+                  <option value="">Select</option>
+                  <option value="morning">Morning (8am-11am)</option>
+                  <option value="afternoon">Afternoon (12pm-4pm)</option>
+                  <option value="evening">Evening (5pm-8pm)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group checkbox-group">
+              <input type="checkbox" id="appointmentConsent" name="appointmentConsent" required>
+              <label for="appointmentConsent">I confirm I meet all eligibility requirements</label>
+            </div>
+
+            <button type="submit" class="btn-primary">Schedule Appointment</button>
+          </form>
+
+          <div id="appointmentSuccess" class="success-message" style="display: none;">
+            <i class="fas fa-check-circle"></i>
+            <h3>Appointment scheduled!</h3>
+            <p>We've sent a confirmation to your email with details about your donation appointment.</p>
+          </div>
+        </div>
+
+        <div class="appointment-calendar">
+          <h3>Available Time Slots</h3>
+          <div class="calendar-header">
+            <button id="prevWeek"><i class="fas fa-chevron-left"></i></button>
+            <h4 id="currentWeek">Week of June 1, 2023</h4>
+            <button id="nextWeek"><i class="fas fa-chevron-right"></i></button>
+          </div>
+          <div class="calendar-grid" id="calendarGrid">
+            <!-- Calendar will be populated by JavaScript -->
+          </div>
+          <div class="calendar-legend">
+            <div class="legend-item">
+              <div class="legend-color available"></div>
+              <span>Available</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color limited"></div>
+              <span>Limited</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color booked"></div>
+              <span>Booked</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-subtitle">Have questions? Get in touch with our team</p>
+
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="info-card">
+            <i class="fas fa-phone-alt"></i>
+            <h4>Phone</h4>
+            <p>1-800-LIFESAVER</p>
+            <p>(1-800-543-3728)</p>
+          </div>
+          <div class="info-card">
+            <i class="fas fa-envelope"></i>
+            <h4>Email</h4>
+            <p>info@lifesaver.org</p>
+            <p>support@lifesaver.org</p>
+          </div>
+          <div class="info-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <h4>Headquarters</h4>
+            <p>1234 Blood Drive Way</p>
+            <p>Metropolis, MP 12345</p>
+          </div>
+          <div class="info-card">
+            <i class="fas fa-clock"></i>
+            <h4>Hours</h4>
+            <p>Monday-Friday: 8am-8pm</p>
+            <p>Saturday-Sunday: 9am-5pm</p>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="contactName">Name</label>
+              <input type="text" id="contactName" name="contactName" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactEmail">Email</label>
+                <input type="email" id="contactEmail" name="contactEmail" required>
+              </div>
+              <div class="form-group">
+                <label for="contactPhone">Phone (optional)</label>
+                <input type="tel" id="contactPhone" name="contactPhone">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contactSubject">Subject</label>
+              <select id="contactSubject" name="contactSubject" required>
+                <option value="">Select</option>
+                <option value="donation">Donation Questions</option>
+                <option value="request">Blood Request</option>
+                <option value="partnership">Partnership Inquiry</option>
+                <option value="volunteer">Volunteer Opportunity</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" name="contactMessage" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary">Send Message</button>
+          </form>
+
+          <div id="contactSuccess" class="success-message" style="display: none;">
+            <i class="fas fa-check-circle"></i>
+            <h3>Message sent successfully!</h3>
+            <p>We'll get back to you within 24 hours. For urgent matters, please call our hotline.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-about">
+          <h3><i class="fas fa-heartbeat"></i> LifeSaver</h3>
+          <p>Connecting blood donors with recipients and blood banks to save lives across our community.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#donate">Donate Blood</a></li>
+            <li><a href="#request">Request Blood</a></li>
+            <li><a href="#banks">Find Blood Banks</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Eligibility Criteria</a></li>
+            <li><a href="#">Donation Process</a></li>
+            <li><a href="#">Blood Types</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Volunteer</a></li>
+            <li><a href="#">Partners</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter">
+          <h4>Stay Updated</h4>
+          <p>Subscribe to our newsletter for blood donation campaigns and updates.</p>
+          <form id="newsletterForm">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 LifeSaver Blood Donation Network. All rights reserved.</p>
+        <div class="legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+  <!-- For the map functionality, you would typically include a map API like Google Maps -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</body>
+
+</html>
